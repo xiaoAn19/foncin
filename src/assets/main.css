@@ -1,0 +1,17 @@
+@import './base.css';
+
+#app {
+  width: 100%;
+  /* Constrain entire app content */
+  margin: 0 auto;
+  /* Center the app */
+  padding: 0;
+  font-weight: normal;
+  background-color: transparent;
+  /* Let component backgrounds show, or white if needed */
+}
+
+body {
+  background-color: white;
+  /* Areas outside 1920px will be white */
+}
