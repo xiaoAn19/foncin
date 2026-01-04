@@ -1,5 +1,42 @@
 <script setup lang="ts">
 import homeBanner from '@/assets/home-banner.mp4'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useScrollToTop } from '@/composables/useScrollToTop'
+
+const router = useRouter()
+const { scrollToTop } = useScrollToTop()
+
+const videoRef = ref<HTMLVideoElement | null>(null)
+const isMuted = ref(true)
+
+const toggleSound = () => {
+  if (videoRef.value) {
+    videoRef.value.muted = !videoRef.value.muted
+    isMuted.value = videoRef.value.muted
+  }
+}
+
+const goToSustainability = () => {
+  router.push('/sustainability')
+}
+
+const goToProducts = () => {
+  router.push('/product')
+}
+
+const openContact = () => {
+  const contactBtn = document.querySelector('.contact-btn') as HTMLElement
+  if (contactBtn) {
+    contactBtn.click()
+  }
+}
+
+const contentSection = ref<HTMLElement | null>(null)
+
+const scrollToContent = () => {
+  contentSection.value?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -8,35 +45,32 @@ import homeBanner from '@/assets/home-banner.mp4'
     <!-- Hero Section -->
     <div class="hero-section-container">
       <section class="hero-section">
-        <video class="hero-video" autoplay loop muted playsinline>
+        <video class="hero-video" autoplay loop muted playsinline ref="videoRef">
           <source :src="homeBanner" type="video/mp4">
         </video>
         <div class="hero-content">
-          <h2 class="hero-title">循环视频</h2>
-          <div class="hero-subtitle-group">
-            <h3>From water</h3>
-            <p>We weave（knit）a more sustainable future .</p>
-          </div>
-          <div class="scroll-indicator">
+          <!-- <h2 class="hero-title">循环视频</h2> -->
+          <!-- <div class="hero-subtitle-group">
+            <h3>{{ $t('home.bannerTitle') }}</h3>
+            <p>{{ $t('home.bannerTitle2') }}</p>
+          </div> -->
+          <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
           </div>
         </div>
+        <button class="sound-control" @click="toggleSound">
+          {{ isMuted ? $t('homePage.soundOn') : $t('homePage.soundOff') }}
+        </button>
       </section>
     </div>
 
     <!-- Fabric Story Section -->
-    <section class="story-section">
+    <section class="story-section" ref="contentSection">
       <div class="story-content-wrapper">
         <!-- Intro Text -->
         <div class="story-intro">
           <div class="intro-left">
-            <p>For nearly 40 years, we have been an integratedtextile mill -from yarn dyeing、 knitting, fabricdyeing to
-              finished fabrics.
-              <br>
-              In the most water-intensive stage of production, westart with living water: investing in
-              wastewatertreatment, heat recovery and biodegradable fabrics,to offer world-wide partners fabrics that are
-              bothbeautiful and responsible.
-            </p>
+            <p>{{ $t('home.desc') }}</p>
           </div>
           <div class="intro-right">
             <!-- Placeholder for Factory Image -->
@@ -48,30 +82,30 @@ import homeBanner from '@/assets/home-banner.mp4'
 
         <!-- Navigation/Tabs -->
         <div class="story-nav">
-          <button class="nav-btn active">Explore Sustainability</button>
-          <button class="nav-btn">Explore Our Fabrics</button>
-          <button class="nav-btn">Explore Us</button>
+          <button class="nav-btn" @click="goToSustainability">{{ $t('home.tab1') }}</button>
+          <button class="nav-btn" @click="goToProducts">{{ $t('home.tab2') }}</button>
+          <button class="nav-btn" @click="openContact">{{ $t('home.tab3') }}</button>
         </div>
 
         <div class="story-content1">
           <img src="@/assets/home2.webp" alt="">
-          <div>Yarn Weaving</div>
+          <div>{{ $t('home.step1') }}</div>
         </div>
         <div class="story-content2">
           <img src="@/assets/home3.webp" alt="">
-          <div>Yarn inspection</div>
+          <div>{{ $t('home.step2') }}</div>
         </div>
         <div class="story-content3">
           <img src="@/assets/home4.webp" alt="">
-          <div>Fabric weaving</div>
+          <div>{{ $t('home.step3') }}</div>
         </div>
         <div class="story-content4">
           <img src="@/assets/home5.webp" alt="">
-          <div>Fabric Dyeing</div>
+          <div>{{ $t('home.step4') }}</div>
         </div>
         <div class="story-content5">
           <img src="@/assets/home6.webp" alt="">
-          <div>Fabric</div>
+          <div>{{ $t('home.step5') }}</div>
         </div>
 
         <div class="story-content6">
@@ -79,17 +113,14 @@ import homeBanner from '@/assets/home-banner.mp4'
         </div>
         <!-- Sustainability Framework -->
         <div class="sustainability-footer">
-          <h4>Our Sustainability Framework</h4>
-          <p>We see sustainability as a complete system.</p>
-          <p>Planet - reducing our impact on water and energy.</p>
-          <p>Product - making fabrics more responsible, from materials to processes.</p>
-          <p>People - ensuring everyone behind our fabrics is treated with care.</p>
+          <h4>{{ $t('home.footerTitle') }}</h4>
+          <p>{{ $t('home.footerText') }}</p>
         </div>
       </div>
     </section>
 
     <!-- Footer Indicator -->
-    <footer class="footer-indicator">
+    <footer class="footer-indicator" @click="scrollToTop">
       <img src="@/assets/arrow-top.svg" alt="">
     </footer>
   </div>
@@ -181,7 +212,30 @@ import homeBanner from '@/assets/home-banner.mp4'
   bottom: 89px;
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
+
+.sound-control {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
 
 /* Story Section */
 .story-section {
@@ -271,10 +325,6 @@ import homeBanner from '@/assets/home-banner.mp4'
 }
 
 .nav-btn:hover {
-  background-color: #eee;
-}
-
-.nav-btn.active {
   background-color: #5d4a41;
   color: white;
   border-color: #5d4a41;
@@ -411,6 +461,7 @@ import homeBanner from '@/assets/home-banner.mp4'
 }
 
 .footer-indicator {
+  cursor: pointer;
   text-align: center;
   padding: 2rem;
   background-color: #f2f0eb;

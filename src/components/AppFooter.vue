@@ -10,14 +10,14 @@
       <div class="footer-main">
         <!-- 左侧菜单 -->
         <div class="footer-menu">
-          <a href="#">Sustainability</a>
-          <a href="#">Brand</a>
-          <a href="#">Products</a>
+          <RouterLink to="/sustainability">{{ $t('nav.sustainability') }}</RouterLink>
+          <!-- <a href="#">Brand</a> -->
+          <RouterLink to="/product">{{ $t('nav.product') }}</RouterLink>
         </div>
 
         <div class="footer-menu">
-          <a href="#">Equipment</a>
-          <a href="#">Contact Us</a>
+          <RouterLink to="/equipment">{{ $t('nav.equipment') }}</RouterLink>
+          <a href="#" @click.prevent="openContact">{{ $t('nav.contact') }}</a>
         </div>
 
         <!-- 中间分割线 -->
@@ -44,12 +44,18 @@
 
     <!-- 底部版权 -->
     <div class="footer-copyright">
-      Copyright © foncin 2025 · All Rights Reserved · ICP备123456789号-1
+      {{ $t('footer.copyright') }}
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
+const openContact = () => {
+  const contactBtn = document.querySelector('.header-right .contact-btn') as HTMLElement
+  if (contactBtn) {
+    contactBtn.click()
+  }
+}
 </script>
 
 <style lang="scss" scoped>

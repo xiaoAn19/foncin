@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const emit = defineEmits(['close']);
 </script>
 
 <template>
@@ -6,12 +7,13 @@
     <div class="menu-container">
       <div class="menu-column">
         <nav>
-          <a href="#">Home</a>
-          <a href="#">About Us</a>
+          <RouterLink to="/" @click="emit('close')">{{ $t('nav.home') }}</RouterLink>
+          <RouterLink to="/about" @click="emit('close')">{{ $t('nav.about') }}</RouterLink>
         </nav>
         <nav>
-          <a href="#">Our Products</a>
-          <a href="#">Sustainability</a>
+          <RouterLink to="/product" @click="emit('close')">{{ $t('nav.product') }}</RouterLink>
+          <RouterLink to="/sustainability" @click="emit('close')">{{ $t('nav.sustainability') }}</RouterLink>
+          <RouterLink to="/equipment" @click="emit('close')">{{ $t('nav.equipment') }}</RouterLink>
         </nav>
       </div>
       <div class="menu-right">

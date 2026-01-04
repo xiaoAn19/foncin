@@ -17,7 +17,26 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
     },
+    {
+      path: '/product',
+      name: 'product',
+      component: () => import('../views/ProductView.vue'),
+    },
+    {
+      path: '/sustainability',
+      name: 'sustainability',
+      component: () => import('../views/SustainabilityView.vue'),
+    },
+    {
+      path: '/equipment',
+      name: 'equipment',
+      component: () => import('../views/EquipmentView.vue'),
+    },
   ],
+  scrollBehavior() {
+    // 每次路由跳转后滚动到页面顶部
+    return { top: 0, behavior: 'smooth' }
+  },
 })
 
 export default router

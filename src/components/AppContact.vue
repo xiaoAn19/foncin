@@ -14,43 +14,40 @@ const scrollToTop = () => {
   <section class="contact-section">
     <!-- 顶部说明文案 -->
     <p class="intro-text">
-      We welcome brands, buying offices and partners from Europe and
-      around the world to talk with us about premium, comfortable, high-
-      quality fabrics.
+      {{ $t('contact.intro') }}
     </p>
 
     <!-- 联系方式列表 -->
     <div class="contact-list">
       <div class="contact-item">
-        <h4>Email</h4>
+        <h4>{{ $t('contact.items.email') }}</h4>
         <p>123456789@gmail.com</p>
       </div>
 
       <div class="contact-item">
-        <h4>Phone</h4>
+        <h4>{{ $t('contact.items.phone') }}</h4>
         <p>+86 12345678901</p>
       </div>
 
       <div class="contact-item">
-        <h4>Address</h4>
-        <p>guangzhou city · guangdong · China</p>
+        <h4>{{ $t('contact.items.address') }}</h4>
+        <p>{{ $t('contact.addressValue') }}</p>
       </div>
 
       <div class="contact-item">
-        <h4>Wechat</h4>
+        <h4>{{ $t('contact.items.wechat') }}</h4>
         <p>12345678</p>
       </div>
 
       <div class="contact-item">
-        <h4>Facebook</h4>
+        <h4>{{ $t('contact.items.facebook') }}</h4>
         <p>12345678</p>
       </div>
     </div>
 
     <!-- 底部说明 -->
     <p class="footer-text">
-      Whether you are exploring possibilities or ready to discuss a specific
-      project, feel free to reach out through any of the channels above.
+      {{ $t('contact.footer') }}
     </p>
 
     <!-- 返回顶部按钮 -->
