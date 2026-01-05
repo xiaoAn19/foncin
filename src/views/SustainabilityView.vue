@@ -43,8 +43,8 @@ const scrollToContent = () => {
         <div class="hero-content">
           <h2 class="hero-title">{{ $t('sustain.bannerTitle') }}</h2>
           <div class="hero-subtitle-group">
-            <h3>{{ $t('sustain.bannerSubtitle') }}</h3>
-            <p>{{ $t('sustain.bannerText') }}</p>
+            <!-- <h3>{{ $t('sustain.bannerSubtitle') }}</h3>
+            <p>{{ $t('sustain.bannerText') }}</p> -->
           </div>
           <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
@@ -215,6 +215,10 @@ const scrollToContent = () => {
     justify-items: center;
 
   }
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
 }
 
 .hero-video {
@@ -249,6 +253,11 @@ const scrollToContent = () => {
   bottom: 159px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    bottom: 90px;
+    width: 90%;
+  }
 }
 
 .hero-subtitle-group h3 {
@@ -256,6 +265,11 @@ const scrollToContent = () => {
   font-size: 40px;
   color: #FFFFFF;
   line-height: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: normal;
+  }
 }
 
 .hero-subtitle-group p {
@@ -269,6 +283,10 @@ const scrollToContent = () => {
   width: 40px;
   height: 40px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    bottom: 30px;
+  }
 }
 
 .sound-control {

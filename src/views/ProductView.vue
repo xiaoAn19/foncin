@@ -95,6 +95,10 @@ const scrollToContent = () => {
   width: 40px;
   height: 40px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    bottom: 30px;
+  }
 }
 
 
@@ -114,6 +118,10 @@ const scrollToContent = () => {
     display: flex;
     justify-items: center;
 
+  }
+
+  @media (max-width: 768px) {
+    height: 400px;
   }
 }
 
@@ -148,6 +156,10 @@ const scrollToContent = () => {
   bottom: 159px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    bottom: 90px;
+  }
 }
 
 .hero-subtitle-group h3 {
@@ -155,6 +167,11 @@ const scrollToContent = () => {
   font-size: 40px;
   color: #FFFFFF;
   line-height: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: normal;
+  }
 }
 
 .hero-subtitle-group p {

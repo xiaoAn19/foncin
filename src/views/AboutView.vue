@@ -29,14 +29,16 @@ const toggleSound = () => {
 }
 
 onMounted(() => {
-  rellaxInstance.value = new Rellax('.rellax', {
-    center: true
-  })
+  if (window.innerWidth > 768) {
+    rellaxInstance.value = new Rellax('.rellax', {
+      center: true
+    })
 
-  // 延迟刷新以确保布局和图片高度稳定，解决底部偏移偏差
-  setTimeout(() => {
-    rellaxInstance.value?.refresh()
-  }, 500)
+    // 延迟刷新以确保布局和图片高度稳定，解决底部偏移偏差
+    setTimeout(() => {
+      rellaxInstance.value?.refresh()
+    }, 500)
+  }
 })
 
 onUnmounted(() => {
@@ -163,6 +165,10 @@ const scrollToContent = () => {
     justify-items: center;
 
   }
+
+  @media (max-width: 768px) {
+    height: 400px;
+  }
 }
 
 .hero-video {
@@ -196,6 +202,11 @@ const scrollToContent = () => {
   bottom: 159px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (max-width: 768px) {
+    bottom: 90px;
+    width: 90%;
+  }
 }
 
 .hero-subtitle-group h3 {
@@ -203,6 +214,11 @@ const scrollToContent = () => {
   font-size: 40px;
   color: #FFFFFF;
   line-height: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    line-height: normal;
+  }
 }
 
 .hero-subtitle-group p {
@@ -216,6 +232,10 @@ const scrollToContent = () => {
   width: 40px;
   height: 40px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    bottom: 30px;
+  }
 }
 
 .sound-control {
@@ -329,11 +349,16 @@ const scrollToContent = () => {
   .story-item {
     flex-direction: column !important;
     gap: 40px;
+    margin: 0 auto 80px;
   }
 
   .story-image {
     flex: none;
     width: 100%;
+
+    .img-placeholder {
+      overflow: hidden;
+    }
   }
 
   .story-content {
