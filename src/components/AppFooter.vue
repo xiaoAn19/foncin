@@ -178,7 +178,7 @@ const openContact = () => {
 @media screen and (max-height: 980px) {
   .footer {
     height: 788px;
-    padding: 24px 60px;
+    padding: 24px;
   }
 
   .footer-icon {
@@ -196,6 +196,7 @@ const openContact = () => {
 
   .footer-divider {
     height: 72px;
+    margin: 0 8px;
   }
 
   .qrcode-box {
@@ -204,8 +205,8 @@ const openContact = () => {
   }
 
   .footer-bg-text img {
-    height: 144px;
-    width: auto;
+    height: 100px;
+    width: 90%;
   }
 
   .footer-copyright {

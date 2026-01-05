@@ -76,4 +76,25 @@ const emit = defineEmits(['close']);
     }
   }
 }
+
+@media (max-width: 768px) {
+  .menu-right {
+    display: none;
+  }
+
+  .menu-container {
+    padding: 0 1rem;
+    gap: 0;
+    /* Remove huge gap since right side is gone */
+    justify-content: center;
+    /* Center the menu items */
+  }
+
+  .menu-column {
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    /* Adjust gap between nav columns if needed */
+  }
+}
 </style>

@@ -51,4 +51,14 @@ body,
     margin-bottom: 788px;
   }
 }
+
+@media (max-width: 768px) {
+
+  html,
+  body,
+  #app {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
 </style>

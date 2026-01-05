@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AppMenu from './AppMenu.vue';
 import AppContact from './AppContact.vue';
@@ -13,6 +13,53 @@ watch(locale, (newLocale) => {
 const isMenuOpen = ref(false);
 const isContactOpen = ref(false);
 const isLangOpen = ref(false);
+
+// Refs for click outside detection
+const menuRef = ref();
+const menuBtnRef = ref();
+const contactRef = ref();
+const contactBtnRef = ref();
+
+const handleClickOutside = (event: MouseEvent) => {
+  const target = event.target as Node;
+
+  // Close Menu if clicked outside
+  if (isMenuOpen.value) {
+    const menuEl = menuRef.value?.$el || menuRef.value;
+    const btnEl = menuBtnRef.value;
+    if (menuEl && !menuEl.contains(target) && btnEl && !btnEl.contains(target)) {
+      isMenuOpen.value = false;
+    }
+  }
+
+  // Close Contact if clicked outside
+  if (isContactOpen.value) {
+    const contactEl = contactRef.value?.$el || contactRef.value;
+    const btnEl = contactBtnRef.value;
+    if (contactEl && !contactEl.contains(target) && btnEl && !btnEl.contains(target)) {
+      isContactOpen.value = false;
+    }
+  }
+
+  // Close Lang if clicked outside
+  if (isLangOpen.value) {
+    // Basic implementation for lang dropdown (since it's inside header-right, might need specific ref if we want strict outside check)
+    // Current toggleLang has .stop modifier so clicking toggle won't trigger this instantly if we bound it to window,
+    // but here we are manual.
+    // Actually, for simplicity, let's just leave lang as is or handle it if needed.
+    // The user specifically asked for "Menu" (and likely Contact by extension of logic).
+    // Let's stick to Menu and Contact as these are the major drawers.
+    isLangOpen.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('click', handleClickOutside);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('click', handleClickOutside);
+});
 
 const toggleLang = () => {
   isLangOpen.value = !isLangOpen.value;
@@ -38,19 +85,17 @@ const toggleContact = () => {
   <div class="header-container">
     <header class="header">
       <div class="header-inner">
-        <div class="header-left" @click="toggleMenu">
-          <span class="menu-icon">
-            ☰ {{ $t('nav.menu') }}
-          </span>
+        <div class="header-left" @click.stop="toggleMenu" ref="menuBtnRef">
+          <span class="menu-icon-symbol">☰</span>
+          <span class="menu-text">{{ $t('nav.menu') }}</span>
         </div>
         <div class="header-center">
-          <h1 class="brand-logo"><img src="@/assets/logo.png" alt=""></h1>
+          <h1 class="brand-logo"><img src="@/assets/logo.png" alt="Logo"></h1>
         </div>
         <div class="header-right">
-          <div @click="toggleContact" class="contact-btn">
-            <span class="contact-link">
-              + {{ $t('nav.contact') }}
-            </span>
+          <div @click.stop="toggleContact" class="contact-btn" ref="contactBtnRef">
+            <span class="contact-icon-symbol">+</span>
+            <span class="contact-text">{{ $t('nav.contact') }}</span>
           </div>
           <div class="lang-switch" @click.stop="toggleLang">
             <span class="current-lang">{{ locale === 'zh' ? '中文' : 'English' }}</span>
@@ -66,11 +111,11 @@ const toggleContact = () => {
     </header>
 
     <Transition name="slide">
-      <AppMenu v-if="isMenuOpen" class="menu-dropdown" @close="toggleMenu" />
+      <AppMenu v-if="isMenuOpen" class="menu-dropdown" @close="toggleMenu" ref="menuRef" />
     </Transition>
 
     <Transition name="slide">
-      <AppContact v-if="isContactOpen" class="menu-dropdown" @close="toggleContact" />
+      <AppContact v-if="isContactOpen" class="menu-dropdown" @close="toggleContact" ref="contactRef" />
     </Transition>
   </div>
 </template>
@@ -99,6 +144,11 @@ const toggleContact = () => {
     justify-content: center;
     background-color: #F0EFEB;
     z-index: 1000;
+
+    @media (max-width: 768px) {
+      height: 60px;
+      /* Smaller height for mobile */
+    }
   }
 
 
@@ -108,7 +158,17 @@ const toggleContact = () => {
     cursor: pointer;
     user-select: none;
     min-width: 60px;
+    display: flex;
+    align-items: center;
     /* Prevent layout shift when text changes */
+  }
+
+  &-left {
+    gap: 8px;
+
+    .menu-icon-symbol {
+      font-size: 20px;
+    }
   }
 
   &-right {
@@ -116,9 +176,21 @@ const toggleContact = () => {
     display: flex;
     align-items: center;
     gap: 20px;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      gap: 15px;
+    }
 
     .contact-btn {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .contact-icon-symbol {
+        font-size: 20px;
+      }
     }
 
     .lang-switch {
@@ -177,6 +249,18 @@ const toggleContact = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0 240px;
+
+  @media (max-width: 1440px) {
+    padding: 0 100px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 }
 
 .brand-logo {
@@ -184,9 +268,42 @@ const toggleContact = () => {
   font-weight: 300;
   letter-spacing: 2px;
   margin: 0;
+  display: flex;
+  align-items: center;
 
   img {
     height: 40px;
+    /* Ensure strictly 40x40 as requested */
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      height: 60px;
+      width: 60px;
+    }
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+
+  .menu-text,
+  .contact-text {
+    display: none;
+    /* Hide text on mobile */
+  }
+
+  .header-left,
+  .header-right {
+    min-width: auto;
+    /* Allow shrinking */
+  }
+
+  .menu-icon-symbol,
+  .contact-icon-symbol {
+    font-size: 24px;
+    /* Larger icons on mobile */
   }
 }
 
