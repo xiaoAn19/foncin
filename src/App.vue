@@ -9,8 +9,9 @@ import AppFooter from './components/AppFooter.vue';
     <AppHeader />
     <main class="app-main">
       <RouterView />
+      <AppFooter class="mobile-footer" />
     </main>
-    <AppFooter />
+    <AppFooter class="pc-footer" />
   </div>
 </template>
 
@@ -66,5 +67,31 @@ body,
     box-shadow: unset;
     margin-bottom: 0;
   }
+
+  /* Toggle footers on mobile */
+  .pc-footer {
+    display: none;
+  }
+
+  .mobile-footer {
+    display: block !important;
+  }
+}
+
+/* PC Footer defaults (visible) */
+.pc-footer {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  height: calc(100vh - 100px);
+  z-index: 0;
+}
+
+/* Mobile Footer defaults (hidden) */
+.mobile-footer {
+  display: none;
+  position: relative;
+  height: auto;
+  min-height: 500px;
 }
 </style>

@@ -57,9 +57,6 @@ const openContact = () => {
 
 <style lang="scss" scoped>
 .footer {
-  position: fixed;
-  bottom: 0;
-  height: calc(100vh - 100px);
   width: 100%;
   background-color: #eae7e2;
   padding: 40px 100px;
@@ -74,9 +71,6 @@ const openContact = () => {
   }
 
   @media screen and (max-width: 768px) {
-    position: relative;
-    min-height: 500px;
-    height: unset;
     background-color: #f2f0eb;
   }
 }
