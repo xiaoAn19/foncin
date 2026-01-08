@@ -85,7 +85,6 @@ const scrollToContent = () => {
   width: 100%;
   min-height: 100vh;
   background-color: #f5f5f0;
-  font-family: 'Inter', sans-serif;
   color: #4a4a4a;
 }
 
@@ -121,7 +120,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 400px;
+    height: 200px;
   }
 }
 
@@ -159,6 +158,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 90px;
+    width: 90%;
   }
 }
 
@@ -286,7 +286,7 @@ $text-sub: #777;
 /* 响应式 */
 @media (max-width: 1024px) {
   .image-wrap {
-    padding: 0 24px;
+    padding: 0px;
   }
 }
 
@@ -322,6 +322,13 @@ $text-sub: #777;
   .product-image {
     flex: none;
     width: 100%;
+    height: 200px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 </style>

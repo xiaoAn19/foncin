@@ -193,7 +193,6 @@ const scrollToContent = () => {
   width: 100%;
   min-height: 100vh;
   background-color: #f5f5f0;
-  font-family: 'Inter', sans-serif;
   color: #4a4a4a;
 }
 
@@ -217,7 +216,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 400px;
+    height: 200px;
   }
 }
 
@@ -359,21 +358,23 @@ $text-sub: #777;
   }
 }
 
-.intro-block.zh-intro {
-  max-width: 1080px;
-  display: flex;
-  align-items: flex-start;
-  gap: 80px;
+@media (min-width: 769px) {
+  .intro-block.zh-intro {
+    max-width: 1080px;
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
 
-  .intro-text {
-    flex: 1;
-    margin-bottom: 0;
-  }
+    .intro-text {
+      flex: 1;
+      margin-bottom: 0;
+    }
 
-  .cycle-diagram {
-    flex: 1;
-    margin: 0;
-    margin-top: 100px;
+    .cycle-diagram {
+      flex: 1;
+      margin: 0;
+      margin-top: 100px;
+    }
   }
 }
 
@@ -482,6 +483,22 @@ $text-sub: #777;
   .intro-block,
   .center-block {
     padding: 0 24px;
+  }
+
+  .diagram-placeholder {
+    img {
+      width: 100%;
+      height: 100% !important;
+      object-fit: cover;
+    }
+  }
+
+  .img-placeholder {
+    img {
+      width: 100%;
+      height: 100% !important;
+      object-fit: cover;
+    }
   }
 }
 

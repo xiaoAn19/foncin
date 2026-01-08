@@ -120,7 +120,8 @@ the story continues.`,
       wechat: 'Wechat',
       facebook: 'Facebook',
     },
-    addressValue: 'guangzhou city · guangdong · China',
+    addressValue:
+      'FONGCING Textile Business Department F6026-F6030,6th Floor, F District,Guangzhou International Textile City, Guangzhou, China.',
     footer:
       'Whether you are exploring possibilities or ready to discuss a specific project, feel free to reach out through any of the channels above.',
   },

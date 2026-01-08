@@ -26,10 +26,7 @@ const goToProducts = () => {
 }
 
 const openContact = () => {
-  const contactBtn = document.querySelector('.contact-btn') as HTMLElement
-  if (contactBtn) {
-    contactBtn.click()
-  }
+  window.dispatchEvent(new CustomEvent('open-contact'))
 }
 
 const contentSection = ref<HTMLElement | null>(null)
@@ -132,7 +129,6 @@ const scrollToContent = () => {
   width: 100%;
   min-height: 100vh;
   background-color: #f5f5f0;
-  font-family: 'Inter', sans-serif;
   color: #4a4a4a;
 
   /* Ensure the main content doesn't exceed design width on huge screens,
@@ -162,7 +158,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 400px;
+    height: 200px;
   }
 }
 
@@ -483,5 +479,76 @@ const scrollToContent = () => {
   text-align: center;
   padding: 2rem;
   background-color: #f2f0eb;
+}
+
+@media (max-width: 768px) {
+  .story-content-wrapper {
+    background: none;
+    height: auto;
+    width: 100%;
+    padding: 0 20px 60px;
+    gap: 60px;
+  }
+
+  .story-intro {
+    position: relative;
+    top: auto;
+    left: auto;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+
+  .intro-left,
+  .intro-right {
+    min-width: auto;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .story-nav,
+  .story-content1,
+  .story-content2,
+  .story-content3,
+  .story-content4,
+  .story-content5,
+  .story-content6,
+  .sustainability-footer {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .story-nav {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .sustainability-footer {
+    width: 100%;
+    padding: 0;
+
+    h4 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .story-content6 {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .factory-image {
+    height: auto;
+  }
 }
 </style>

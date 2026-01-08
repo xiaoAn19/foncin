@@ -120,7 +120,7 @@ Tim在做一件事:“把父亲一辈子的坚持，翻译成这个时代听得�
       wechat: '微信',
       facebook: 'Facebook',
     },
-    addressValue: '中国 · 广东 · 广州',
+    addressValue: '中国 · 广东 · 广州 · 广州国际轻纺城 F区6楼 F6026-F6030 凤城纺织商务部',
     footer: '无论您是探索合作可能，还是准备讨论具体项目，欢迎通过以上任何渠道联系我们。',
   },
   equipment: {

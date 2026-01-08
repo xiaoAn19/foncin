@@ -24,6 +24,7 @@ body,
   margin: 0;
   padding: 0;
   background: #f0efeb;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .app-layout {

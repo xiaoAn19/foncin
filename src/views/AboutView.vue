@@ -137,7 +137,6 @@ const scrollToContent = () => {
   width: 100%;
   min-height: 100vh;
   background-color: #f5f5f0;
-  font-family: 'Inter', sans-serif;
   color: #4a4a4a;
 
   /* Ensure the main content doesn't exceed design width on huge screens,
@@ -167,7 +166,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 400px;
+    height: 200px;
   }
 }
 

@@ -21,12 +21,12 @@ const scrollToTop = () => {
     <div class="contact-list">
       <div class="contact-item">
         <h4>{{ $t('contact.items.email') }}</h4>
-        <p>123456789@gmail.com</p>
+        <p>tim@fongcing.com</p>
       </div>
 
       <div class="contact-item">
         <h4>{{ $t('contact.items.phone') }}</h4>
-        <p>+86 12345678901</p>
+        <p>+86 13282180881</p>
       </div>
 
       <div class="contact-item">
@@ -36,12 +36,7 @@ const scrollToTop = () => {
 
       <div class="contact-item">
         <h4>{{ $t('contact.items.wechat') }}</h4>
-        <p>12345678</p>
-      </div>
-
-      <div class="contact-item">
-        <h4>{{ $t('contact.items.facebook') }}</h4>
-        <p>12345678</p>
+        <p>+86 13282188990</p>
       </div>
     </div>
 

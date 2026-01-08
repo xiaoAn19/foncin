@@ -53,12 +53,22 @@ const handleClickOutside = (event: MouseEvent) => {
   }
 };
 
+const openContactModal = () => {
+  // Use setTimeout to skip the current event loop (prevent handleClickOutside from closing it immediately)
+  setTimeout(() => {
+    if (isMenuOpen.value) isMenuOpen.value = false;
+    isContactOpen.value = true;
+  }, 0);
+};
+
 onMounted(() => {
   window.addEventListener('click', handleClickOutside);
+  window.addEventListener('open-contact', openContactModal);
 });
 
 onUnmounted(() => {
   window.removeEventListener('click', handleClickOutside);
+  window.removeEventListener('open-contact', openContactModal);
 });
 
 const toggleLang = () => {
@@ -249,6 +259,7 @@ const toggleContact = () => {
   justify-content: space-between;
   align-items: center;
   padding: 0 240px;
+  position: relative;
 
   @media (max-width: 1440px) {
     padding: 0 100px;
@@ -261,6 +272,12 @@ const toggleContact = () => {
   @media (max-width: 768px) {
     padding: 0 20px;
   }
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .brand-logo {

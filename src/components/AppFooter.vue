@@ -39,7 +39,7 @@
 
     <!-- 背景大字 -->
     <div class="footer-bg-text">
-      <img src="@/assets/bottom-icon.webp" alt="">
+      <img src="@/assets/logo.png" alt="">
     </div>
 
     <!-- 底部版权 -->
@@ -51,10 +51,7 @@
 
 <script setup lang="ts">
 const openContact = () => {
-  const contactBtn = document.querySelector('.header-right .contact-btn') as HTMLElement
-  if (contactBtn) {
-    contactBtn.click()
-  }
+  window.dispatchEvent(new CustomEvent('open-contact'))
 }
 </script>
 
@@ -139,7 +136,7 @@ const openContact = () => {
 .qrcode-box {
   width: 80px;
   height: 80px;
-  background: url('@/assets/qrcode.webp') no-repeat;
+  background: url('@/assets/qrcode.png') no-repeat;
   background-size: contain;
 }
 
@@ -174,6 +171,22 @@ const openContact = () => {
   z-index: 2;
 }
 
+@media screen and (max-width: 760px) {
+  .footer-bg-text img {
+    height: 90px;
+    width: 90%;
+  }
+
+  .footer-menu {
+    gap: 11px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+}
+
 
 @media screen and (max-height: 980px) {
   .footer {
@@ -192,6 +205,10 @@ const openContact = () => {
 
   .footer-menu {
     gap: 11px;
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .footer-divider {
@@ -202,11 +219,6 @@ const openContact = () => {
   .qrcode-box {
     width: 48px;
     height: 48px;
-  }
-
-  .footer-bg-text img {
-    height: 100px;
-    width: 90%;
   }
 
   .footer-copyright {
