@@ -72,6 +72,13 @@ const openContact = () => {
     justify-content: center;
     margin-bottom: 145px;
   }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    min-height: 500px;
+    height: unset;
+    background-color: #f2f0eb;
+  }
 }
 
 /* 顶部内容 */

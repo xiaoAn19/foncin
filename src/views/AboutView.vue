@@ -98,7 +98,7 @@ const scrollToContent = () => {
           </div>
         </div>
         <button class="sound-control" @click="toggleSound">
-          {{ isMuted ? 'SOUND ON' : 'SOUND OFF' }}
+          {{ isMuted ? $t('homePage.soundOn') : $t('homePage.soundOff') }}
         </button>
       </section>
     </div>

@@ -42,7 +42,7 @@ body,
   background-color: #f0efeb;
   /* Ensure it's opaque */
   margin-bottom: calc(100vh - 100px);
-  /* Match footer height */
+  /* margin-bottom removed for static footer */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   /* Optional shadow for depth */
 }
@@ -60,6 +60,11 @@ body,
   #app {
     width: 100%;
     overflow-x: hidden;
+  }
+
+  .app-main {
+    box-shadow: unset;
+    margin-bottom: 0;
   }
 }
 </style>
