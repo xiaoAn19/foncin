@@ -89,10 +89,10 @@ const scrollToContent = () => {
         </video>
         <div class="hero-content">
           <h2 class="hero-title">循环视频</h2>
-          <div class="hero-subtitle-group">
+          <!-- <div class="hero-subtitle-group">
             <h3>From water</h3>
             <p>We weave（knit）a more sustainable future .</p>
-          </div>
+          </div> -->
           <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
           </div>
@@ -150,7 +150,6 @@ const scrollToContent = () => {
 .hero-section {
   height: 980px;
   width: 100%;
-  background: #404040;
   /* Fallback color */
   color: white;
   text-align: center;
@@ -166,7 +165,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 200px;
+    height: 210px;
   }
 }
 
@@ -178,6 +177,10 @@ const scrollToContent = () => {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+
+  @media (max-width: 768px) {
+    object-fit: contain;
+  }
 }
 
 .hero-content {
@@ -234,6 +237,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 30px;
+    display: none;
   }
 }
 
@@ -255,6 +259,14 @@ const scrollToContent = () => {
 
   &:hover {
     background: rgba(255, 255, 255, 0.3);
+  }
+
+
+  @media (max-width: 768px) {
+    padding: 4px 10px;
+    font-size: 10px;
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -362,6 +374,11 @@ const scrollToContent = () => {
 
   .story-content {
     padding-top: 0;
+  }
+
+  .story-section {
+    background-color: #f2f0eb;
+    padding: 20px 0 160px;
   }
 }
 

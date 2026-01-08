@@ -285,6 +285,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 30px;
+    display: none;
   }
 }
 
@@ -307,6 +308,13 @@ const scrollToContent = () => {
   &:hover {
     background: rgba(255, 255, 255, 0.3);
   }
+
+  @media (max-width: 768px) {
+    padding: 4px 10px;
+    font-size: 10px;
+    bottom: 20px;
+    right: 20px;
+  }
 }
 
 $bg: #f2f0eb;
@@ -317,6 +325,10 @@ $text-sub: #777;
   background: $bg;
   padding: 120px 0 160px;
   color: $text-main;
+
+  @media (max-width: 768px) {
+    padding: 40px 0 60px;
+  }
 }
 
 /* 通用图片占位 */
@@ -397,6 +409,10 @@ $text-sub: #777;
   .img-placeholder {
     width: 100%;
     aspect-ratio: 4 / 5;
+
+    @media screen and (max-width: 768px) {
+      aspect-ratio: unset;
+    }
   }
 }
 
@@ -470,7 +486,7 @@ $text-sub: #777;
 /* 响应式 */
 @media (max-width: 768px) {
   .content-block {
-    flex-direction: column !important;
+    flex-direction: column-reverse !important;
     gap: 40px;
     padding: 0 24px;
   }
@@ -488,16 +504,16 @@ $text-sub: #777;
   .diagram-placeholder {
     img {
       width: 100%;
-      height: 100% !important;
-      object-fit: cover;
+      height: auto !important;
+      object-fit: contain;
     }
   }
 
   .img-placeholder {
     img {
       width: 100%;
-      height: 100% !important;
-      object-fit: cover;
+      height: auto !important;
+      object-fit: contain;
     }
   }
 }

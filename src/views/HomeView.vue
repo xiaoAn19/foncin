@@ -142,7 +142,6 @@ const scrollToContent = () => {
 .hero-section {
   height: 980px;
   width: 100%;
-  background: #404040;
   /* Fallback color */
   color: white;
   text-align: center;
@@ -158,7 +157,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 200px;
+    height: 210px;
   }
 }
 
@@ -170,6 +169,10 @@ const scrollToContent = () => {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+
+  @media (max-width: 768px) {
+    object-fit: contain;
+  }
 }
 
 .hero-content {
@@ -226,6 +229,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 30px;
+    display: none;
   }
 }
 
@@ -245,8 +249,15 @@ const scrollToContent = () => {
   backdrop-filter: blur(4px);
   transition: all 0.3s ease;
 
-  &:hover {
+  s &:hover {
     background: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    padding: 4px 10px;
+    font-size: 10px;
+    bottom: 20px;
+    right: 20px;
   }
 }
 
@@ -315,6 +326,15 @@ const scrollToContent = () => {
   /* Reasonable limit for the image */
   height: 232px;
   /* Taller for better visual */
+
+  @media screen and (max-width: 768px) {
+    height: unset;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 /* Navigation Buttons */

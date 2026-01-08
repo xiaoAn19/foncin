@@ -198,7 +198,7 @@ const scrollToContent = () => {
   transform: translateX(-50%);
 
   @media (max-width: 768px) {
-    bottom: 90px;
+    bottom: 30px;
     width: 90%;
   }
 }
@@ -210,14 +210,19 @@ const scrollToContent = () => {
   line-height: 50px;
 
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 20px;
     line-height: normal;
   }
 }
 
 .hero-subtitle-group p {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 18px;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    line-height: normal;
+  }
 }
 
 .scroll-indicator {
@@ -229,6 +234,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 30px;
+    display: none;
   }
 }
 
@@ -260,6 +266,11 @@ $text-sub: #777;
 .equipment {
   background: $bg;
   padding: 140px 0 160px;
+
+  @media screen and (max-width: 768px) {
+
+    padding: 40px 0 60px;
+  }
 }
 
 /* 滚动动效 */

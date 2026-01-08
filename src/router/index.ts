@@ -33,10 +33,29 @@ const router = createRouter({
       component: () => import('../views/EquipmentView.vue'),
     },
   ],
-  scrollBehavior() {
-    // 每次路由跳转后滚动到页面顶部
-    return { top: 0, behavior: 'smooth' }
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    return { top: 0 }
   },
+})
+
+router.afterEach(() => {
+  // 强制滚动到顶部，适配部分移动端浏览器
+  window.scrollTo(0, 0)
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
+
+  // 尝试滚动可能滚动的容器
+  const app = document.getElementById('app')
+  if (app) app.scrollTop = 0
+
+  const layout = document.querySelector('.app-layout')
+  if (layout) layout.scrollTop = 0
+
+  const main = document.querySelector('.app-main')
+  if (main) main.scrollTop = 0
 })
 
 export default router

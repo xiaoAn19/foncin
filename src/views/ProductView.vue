@@ -97,6 +97,7 @@ const scrollToContent = () => {
 
   @media (max-width: 768px) {
     bottom: 30px;
+    display: none;
   }
 }
 
@@ -120,7 +121,7 @@ const scrollToContent = () => {
   }
 
   @media (max-width: 768px) {
-    height: 200px;
+    height: 210px;
   }
 }
 
@@ -157,7 +158,7 @@ const scrollToContent = () => {
   transform: translateX(-50%);
 
   @media (max-width: 768px) {
-    bottom: 90px;
+    bottom: 30px;
     width: 90%;
   }
 }
