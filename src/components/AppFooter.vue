@@ -186,6 +186,16 @@ const openContact = () => {
     width: 100%;
   }
 
+
+  .footer-qrcode {
+    gap: 15px;
+  }
+
+  .qrcode-box {
+    width: 60px;
+    height: 60px;
+  }
+
   .footer-bg-text img {
     height: 90px;
     width: 100%;
@@ -197,6 +207,7 @@ const openContact = () => {
 
   .footer-menu {
     gap: 11px;
+    margin-right: 10px;
 
     a {
       text-decoration: none;
