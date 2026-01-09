@@ -2,7 +2,7 @@
   <footer class="footer">
 
     <div class="footer-icon">
-      <img src="@/assets/bottom-icon1.webp" alt="">
+      <img src="@/assets/bottom-icon1.png" alt="">
     </div>
 
     <!-- 顶部区域 -->
@@ -67,7 +67,12 @@ const openContact = () => {
     display: flex;
     align-content: center;
     justify-content: center;
-    margin-bottom: 145px;
+    margin-bottom: 120px;
+
+    img {
+      width: 85px;
+      height: 80px;
+    }
   }
 
   @media screen and (max-width: 768px) {

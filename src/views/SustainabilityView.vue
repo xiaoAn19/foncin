@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useScrollToTop } from '@/composables/useScrollToTop'
-import homeBanner from '@/assets/home-banner.mp4'
+import homeBanner from '@/assets/sus.mp4'
 import { useI18n } from 'vue-i18n'
 
 const { scrollToTop } = useScrollToTop()

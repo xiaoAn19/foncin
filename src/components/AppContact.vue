@@ -63,6 +63,10 @@ const scrollToTop = () => {
   padding: 20px 20px 80px;
   color: #6f6a63;
   overflow-y: auto;
+
+  @media screen and (max-width: 768px) {
+    min-height: 100vh;
+  }
 }
 
 /* 顶部说明 */

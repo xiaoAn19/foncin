@@ -372,7 +372,7 @@ const scrollToContent = () => {
 
   .story-section {
     background-color: #f2f0eb;
-    padding: 20px 0 160px;
+    padding: 20px 0 80px;
   }
 }
 
