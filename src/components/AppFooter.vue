@@ -84,7 +84,7 @@ const openContact = () => {
   justify-content: space-between;
   position: relative;
   z-index: 2;
-  margin-bottom: 140px;
+  margin-bottom: 80px;
 }
 
 /* 左侧菜单 */
@@ -189,18 +189,17 @@ const openContact = () => {
 }
 
 
-@media screen and (max-height: 980px) {
+@media screen and (max-width: 1440px) {
   .footer {
-    height: 788px;
-    padding: 24px;
+    padding: 100px 24px 24px;
   }
 
   .footer-icon {
-    margin-bottom: 87px;
+    margin-bottom: 30px;
   }
 
   .footer-main {
-    margin-bottom: 84px;
+    margin-bottom: 30px;
     /* Scale width if needed, or keep as is */
   }
 
@@ -220,6 +219,13 @@ const openContact = () => {
   .qrcode-box {
     width: 48px;
     height: 48px;
+  }
+
+  .footer-bg-text {
+    img {
+      width: 60%;
+      height: 170px;
+    }
   }
 
   .footer-copyright {

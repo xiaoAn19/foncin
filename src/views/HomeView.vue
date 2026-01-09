@@ -140,48 +140,42 @@ const scrollToContent = () => {
 
 /* Hero Section */
 .hero-section {
-  height: 980px;
   width: 100%;
-  /* Fallback color */
-  color: white;
-  text-align: center;
   position: relative;
   overflow: hidden;
-  /* Ensure video doesn't spill out */
 
   &-container {
     width: 100%;
     display: flex;
     justify-items: center;
-
-  }
-
-  @media (max-width: 768px) {
-    height: 210px;
   }
 }
 
 .hero-video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 0;
+}
+
+.hero-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 0;
-
-  @media (max-width: 768px) {
-    object-fit: contain;
-  }
-}
-
-.hero-content {
   z-index: 10;
   /* Ensure content is above video */
   display: flex;
   /* Restore flex context if needed for children, or just inherit */
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
+}
+
+.hero-content>* {
+  pointer-events: auto;
 }
 
 .hero-title {
@@ -569,6 +563,50 @@ const scrollToContent = () => {
 
   .factory-image {
     height: auto;
+  }
+}
+
+@media screen and (max-width: 1380px) {
+  .story-content-wrapper {
+    transform: scale(0.8);
+    transform-origin: top center;
+    // height: 2340px;
+    /* 2600 * 0.9 */
+    margin-bottom: -260px;
+    /* Compensate for whitespace */
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .story-content-wrapper {
+    transform: scale(0.6);
+    transform-origin: top center;
+    // height: 2080px;
+    /* 2600 * 0.8 */
+    margin-bottom: -520px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .story-section {
+    padding: 2rem 0;
+  }
+
+  .story-content-wrapper {
+    transform: scale(0.65);
+    transform-origin: top center;
+    height: 1690px;
+    /* 2600 * 0.65 */
+    margin-bottom: -910px;
+    width: 100%;
+    /* Ensure it doesn't overflow horizontally */
+  }
+
+  /* Reset width constraint for the scaled element to ensure it centers properly */
+  .story-content-wrapper {
+    width: 1200px;
+    /* We keep the original width for the content to render correctly,
+       but the scale makes it visually smaller to fit 1024px */
   }
 }
 </style>

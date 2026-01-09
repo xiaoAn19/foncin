@@ -88,7 +88,7 @@ const scrollToContent = () => {
           <source :src="homeBanner" type="video/mp4">
         </video>
         <div class="hero-content">
-          <h2 class="hero-title">循环视频</h2>
+          <!-- <h2 class="hero-title">循环视频</h2> -->
           <!-- <div class="hero-subtitle-group">
             <h3>From water</h3>
             <p>We weave（knit）a more sustainable future .</p>
@@ -148,48 +148,42 @@ const scrollToContent = () => {
 
 /* Hero Section */
 .hero-section {
-  height: 980px;
   width: 100%;
-  /* Fallback color */
-  color: white;
-  text-align: center;
   position: relative;
   overflow: hidden;
-  /* Ensure video doesn't spill out */
 
   &-container {
     width: 100%;
     display: flex;
     justify-items: center;
-
-  }
-
-  @media (max-width: 768px) {
-    height: 210px;
   }
 }
 
 .hero-video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 0;
+}
+
+.hero-content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 0;
-
-  @media (max-width: 768px) {
-    object-fit: contain;
-  }
-}
-
-.hero-content {
   z-index: 10;
   /* Ensure content is above video */
   display: flex;
   /* Restore flex context if needed for children, or just inherit */
   flex-direction: column;
   align-items: center;
+  pointer-events: none;
+}
+
+.hero-content>* {
+  pointer-events: auto;
 }
 
 .hero-title {
