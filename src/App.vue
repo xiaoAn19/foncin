@@ -2,6 +2,22 @@
 import { RouterView } from 'vue-router'
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+
+const isMobile = ref(false)
+
+const checkWidth = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+onMounted(() => {
+  checkWidth()
+  window.addEventListener('resize', checkWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkWidth)
+})
 </script>
 
 <template>
@@ -9,9 +25,9 @@ import AppFooter from './components/AppFooter.vue';
     <AppHeader />
     <main class="app-main">
       <RouterView />
-      <AppFooter class="mobile-footer" />
+      <AppFooter class="mobile-footer" v-if="isMobile" />
     </main>
-    <AppFooter class="pc-footer" />
+    <AppFooter class="pc-footer" v-if="!isMobile" />
   </div>
 </template>
 
@@ -68,28 +84,30 @@ body,
     margin-bottom: 0;
   }
 
-  /* Toggle footers on mobile */
+  /* Toggle footers on mobile - handled by JS now
   .pc-footer {
     display: none;
   }
 
   .mobile-footer {
     display: block !important;
-  }
+  } */
 }
 
 /* PC Footer defaults (visible) */
 .pc-footer {
-  display: block;
+  /* display: block; - handled by v-if */
   position: fixed;
   bottom: 0;
   height: calc(100vh - 100px);
   z-index: 0;
+  width: 100%;
+  /* Ensure width is set */
 }
 
 /* Mobile Footer defaults (hidden) */
 .mobile-footer {
-  display: none;
+  /* display: none; - handled by v-if */
   position: relative;
   height: auto;
   min-height: 500px;

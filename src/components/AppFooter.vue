@@ -173,9 +173,26 @@ const openContact = () => {
 }
 
 @media screen and (max-width: 760px) {
+  .footer {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .footer-icon {
+    margin-bottom: 60px;
+  }
+
+  .footer-main {
+    width: 100%;
+  }
+
   .footer-bg-text img {
     height: 90px;
-    width: 90%;
+    width: 100%;
+  }
+
+  .footer-divider {
+    display: none;
   }
 
   .footer-menu {
@@ -186,10 +203,14 @@ const openContact = () => {
     }
   }
 
+  .footer-copyright {
+    position: relative;
+  }
+
 }
 
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
   .footer {
     padding: 100px 24px 24px;
   }

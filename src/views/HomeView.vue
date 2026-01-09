@@ -566,7 +566,7 @@ const scrollToContent = () => {
   }
 }
 
-@media screen and (max-width: 1380px) {
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
   .story-content-wrapper {
     transform: scale(0.8);
     transform-origin: top center;
@@ -577,7 +577,7 @@ const scrollToContent = () => {
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
   .story-content-wrapper {
     transform: scale(0.6);
     transform-origin: top center;
@@ -587,7 +587,7 @@ const scrollToContent = () => {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 761px) and (max-width: 1024px) {
   .story-section {
     padding: 2rem 0;
   }
