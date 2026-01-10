@@ -7,12 +7,11 @@ const emit = defineEmits(['close']);
     <div class="menu-container">
       <div class="menu-column">
         <nav>
-          <RouterLink to="/" @click="emit('close')">{{ $t('nav.home') }}</RouterLink>
+          <RouterLink to="/sustainability" @click="emit('close')">{{ $t('nav.sustainability') }}</RouterLink>
           <RouterLink to="/about" @click="emit('close')">{{ $t('nav.about') }}</RouterLink>
         </nav>
         <nav>
           <RouterLink to="/product" @click="emit('close')">{{ $t('nav.product') }}</RouterLink>
-          <RouterLink to="/sustainability" @click="emit('close')">{{ $t('nav.sustainability') }}</RouterLink>
           <RouterLink to="/equipment" @click="emit('close')">{{ $t('nav.equipment') }}</RouterLink>
         </nav>
       </div>

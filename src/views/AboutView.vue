@@ -93,9 +93,9 @@ const scrollToContent = () => {
             <h3>From water</h3>
             <p>We weave（knit）a more sustainable future .</p>
           </div> -->
-          <div class="scroll-indicator" @click="scrollToContent">
+          <!-- <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
-          </div>
+          </div> -->
         </div>
         <button class="sound-control" @click="toggleSound">
           {{ isMuted ? $t('homePage.soundOn') : $t('homePage.soundOff') }}

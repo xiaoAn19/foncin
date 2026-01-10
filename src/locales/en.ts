@@ -3,9 +3,9 @@ export default {
     home: 'Home',
     menu: 'Menu',
     equipment: 'Equipment',
-    product: 'Our Products',
+    product: 'Products',
     sustainability: 'Sustainability',
-    about: 'About',
+    about: 'Brand',
     contact: 'Contact Us',
   },
   homePage: {

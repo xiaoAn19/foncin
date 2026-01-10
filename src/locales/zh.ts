@@ -5,7 +5,7 @@ export default {
     equipment: '设备',
     product: '产品',
     sustainability: '可持续',
-    about: '我们',
+    about: '品牌',
     contact: '联系我们',
   },
   homePage: {

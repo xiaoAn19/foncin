@@ -46,9 +46,9 @@ const scrollToContent = () => {
             <!-- <h3>{{ $t('sustain.bannerSubtitle') }}</h3>
             <p>{{ $t('sustain.bannerText') }}</p> -->
           </div>
-          <div class="scroll-indicator" @click="scrollToContent">
+          <!-- <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
-          </div>
+          </div> -->
         </div>
         <button class="sound-control" @click="toggleSound">
           {{ isMuted ? 'SOUND ON' : 'SOUND OFF' }}
@@ -345,7 +345,7 @@ $text-sub: #777;
 /* 1. 顶部 */
 .intro-block {
   max-width: 1080px;
-  margin: 0 auto 160px;
+  margin: 0 auto 300px;
   text-align: center;
 }
 
@@ -393,13 +393,23 @@ $text-sub: #777;
 /* 通用左右图文块 */
 .content-block {
   max-width: 1080px;
-  margin: 0 auto 10px;
+  margin: 0 auto 300px;
   display: flex;
   gap: 120px;
   align-items: flex-start;
 
   &.reverse {
     flex-direction: row-reverse;
+  }
+
+  font-weight: 400;
+  font-size: 14px;
+  color: #5E4F46;
+  line-height: 28px;
+  text-align: left;
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -408,7 +418,7 @@ $text-sub: #777;
 
   .img-placeholder {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    // aspect-ratio: 4 / 5;
 
     @media screen and (max-width: 768px) {
       aspect-ratio: unset;
@@ -444,7 +454,7 @@ $text-sub: #777;
 /* 居中块 */
 .center-block {
   max-width: 1080px;
-  margin: 0 auto 60px;
+  margin: 0 auto 250px;
 
   h3 {
     font-weight: bold;

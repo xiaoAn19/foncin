@@ -65,9 +65,9 @@ body,
 }
 
 @media screen and (max-height: 980px) {
-  .app-main {
+  /* .app-main {
     margin-bottom: 788px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {

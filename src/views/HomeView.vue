@@ -51,9 +51,9 @@ const scrollToContent = () => {
             <h3>{{ $t('home.bannerTitle') }}</h3>
             <p>{{ $t('home.bannerTitle2') }}</p>
           </div> -->
-          <div class="scroll-indicator" @click="scrollToContent">
+          <!-- <div class="scroll-indicator" @click="scrollToContent">
             <img src="@/assets/arrow-right.svg" alt="">
-          </div>
+          </div> -->
         </div>
         <button class="sound-control" @click="toggleSound">
           {{ isMuted ? $t('homePage.soundOn') : $t('homePage.soundOff') }}
@@ -295,9 +295,12 @@ const scrollToContent = () => {
 
 .intro-left {
   flex: 1;
-  max-width: 400px;
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-weight: 400;
+  font-size: 14px;
+  color: #5E4F46;
+  text-align: left;
+  font-style: normal;
+  line-height: 28px;
 }
 
 .intro-right {

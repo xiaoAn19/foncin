@@ -3,8 +3,14 @@ import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import AppMenu from './AppMenu.vue';
 import AppContact from './AppContact.vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const { locale } = useI18n();
+
+const goHome = () => {
+  router.push("/")
+}
 
 watch(locale, (newLocale) => {
   localStorage.setItem('user-locale', newLocale);
@@ -100,7 +106,7 @@ const toggleContact = () => {
           <span class="menu-text">{{ $t('nav.menu') }}</span>
         </div>
         <div class="header-center">
-          <h1 class="brand-logo"><img src="@/assets/logo.png" alt="Logo"></h1>
+          <h1 class="brand-logo" @click="goHome"><img src="@/assets/logo.png" alt="Logo"></h1>
         </div>
         <div class="header-right">
           <div @click.stop="toggleContact" class="contact-btn" ref="contactBtnRef">
@@ -141,7 +147,6 @@ const toggleContact = () => {
   background-color: #F0EFEB;
   z-index: 1100;
   /* Higher than menu */
-  font-size: 0.9rem;
   color: #333;
   align-items: center;
 

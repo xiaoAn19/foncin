@@ -54,7 +54,7 @@ const scrollToTop = () => {
 
 <style scoped lang="scss">
 .contact-section {
-  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
   /* Adjusted to fit the dropdown request logic */
   background-color: #F0EFEB;
   display: flex;
@@ -64,8 +64,21 @@ const scrollToTop = () => {
   color: #6f6a63;
   overflow-y: auto;
 
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dcdcdc;
+    border-radius: 4px;
+  }
+
   @media screen and (max-width: 768px) {
-    min-height: 100vh;
+    height: calc(100vh - 60px);
   }
 }
 
@@ -124,6 +137,7 @@ const scrollToTop = () => {
 .back-top {
   width: 36px;
   height: 36px;
+  flex-shrink: 0;
   border: 1px solid #5e4f46;
   border-radius: 50%;
   display: flex;
@@ -145,4 +159,14 @@ const scrollToTop = () => {
     margin-top: 4px;
   }
 }
-</style>
+
+// @media screen and (max-height: 900px) {
+//   .intro-text {
+//     margin-bottom: 40px;
+//   }
+
+//   .contact-list {
+//     gap: 24px;
+//     margin-bottom: 30px;
+//   }
+// }</style>

@@ -9,6 +9,7 @@ import eq3 from '@/assets/eq3.webp'
 import eq4 from '@/assets/eq4.webp'
 import eq5 from '@/assets/eq5.webp'
 import eq6 from '@/assets/eq6.webp'
+import eqBanner from '@/assets/eqbannber.webp'
 
 import { useScrollToTop } from '@/composables/useScrollToTop'
 
@@ -75,6 +76,7 @@ const scrollToContent = () => {
     <!-- Hero Section -->
     <div class="hero-section-container">
       <section class="hero-section">
+        <img :src="eqBanner" class="hero-image" alt="Equipment Banner">
         <div class="hero-content">
           <!-- <h2 class="hero-title">Equipment</h2> -->
           <div class="hero-subtitle-group">
@@ -147,10 +149,10 @@ const scrollToContent = () => {
 
 /* Hero Section */
 .hero-section {
-  height: 980px;
+  height: calc(100vh - 100px);
   width: 100%;
-  background: url('@/assets/eqbannber.webp') no-repeat;
-  background-size: cover;
+  /* background: url('@/assets/eqbannber.webp') no-repeat; */
+  /* background-size: cover; */
   color: white;
   text-align: center;
   position: relative;
@@ -165,6 +167,16 @@ const scrollToContent = () => {
   @media (max-width: 768px) {
     height: 200px;
   }
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .hero-video {

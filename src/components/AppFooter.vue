@@ -2,7 +2,7 @@
   <footer class="footer">
 
     <div class="footer-icon">
-      <img src="@/assets/bottom-icon1.png" alt="">
+      <img src="@/assets/bottom-icon1.png" @click="goHome" alt="">
     </div>
 
     <!-- 顶部区域 -->
@@ -50,6 +50,12 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+const goHome = () => {
+  router.push("/")
+}
 const openContact = () => {
   window.dispatchEvent(new CustomEvent('open-contact'))
 }
@@ -228,15 +234,15 @@ const openContact = () => {
 
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
   .footer {
-    padding: 100px 24px 24px;
+    padding: 24px;
   }
 
   .footer-icon {
-    margin-bottom: 30px;
+    margin-bottom: 90px;
   }
 
   .footer-main {
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
     /* Scale width if needed, or keep as is */
   }
 
@@ -260,8 +266,8 @@ const openContact = () => {
 
   .footer-bg-text {
     img {
-      width: 60%;
-      height: 170px;
+      width: 35%;
+      height: auto;
     }
   }
 

@@ -6,6 +6,7 @@ import product1 from '@/assets/product1.png'
 import product2 from '@/assets/product2.png'
 import product3 from '@/assets/product3.png'
 import product4 from '@/assets/product4.png'
+import productBanner from '@/assets/product-banner.webp'
 
 const { tm } = useI18n()
 const { scrollToTop } = useScrollToTop()
@@ -40,6 +41,7 @@ const scrollToContent = () => {
 
     <div class="hero-section-container">
       <section class="hero-section">
+        <img :src="productBanner" class="hero-image" alt="Product Banner">
         <div class="hero-content">
           <div class="hero-subtitle-group">
             <h3>{{ $t('product.bannerTitle') }}</h3>
@@ -102,10 +104,11 @@ const scrollToContent = () => {
 }
 
 
+
 .hero-section {
-  height: 980px;
+  height: calc(100vh - 100px);
   width: 100%;
-  background: url('@/assets/product-banner.webp') no-repeat center center;
+  /* background: url('@/assets/product-banner.webp') no-repeat center center; */
   /* Fallback color */
   color: white;
   text-align: center;
@@ -123,6 +126,16 @@ const scrollToContent = () => {
   @media (max-width: 768px) {
     height: 210px;
   }
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .hero-video {
