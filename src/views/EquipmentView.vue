@@ -412,12 +412,13 @@ $text-sub: #777;
     flex-direction: column !important;
     gap: 40px;
     padding: 0 24px;
-    margin: 0 auto 120px;
+    margin: 0 auto 300px;
   }
 
   .image {
     flex: none;
     width: 100%;
+    padding-top: 0;
   }
 
   .intro,

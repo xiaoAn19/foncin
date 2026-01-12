@@ -354,7 +354,7 @@ const scrollToContent = () => {
   .story-item {
     flex-direction: column !important;
     gap: 40px;
-    margin: 0 auto 80px;
+    margin: 0 auto 300px;
   }
 
   .story-image {
@@ -363,6 +363,7 @@ const scrollToContent = () => {
 
     .img-placeholder {
       overflow: hidden;
+      aspect-ratio: unset;
     }
   }
 

@@ -9,15 +9,17 @@
     <div style="display: flex;justify-content: center;">
       <div class="footer-main">
         <!-- 左侧菜单 -->
-        <div class="footer-menu">
-          <RouterLink to="/sustainability">{{ $t('nav.sustainability') }}</RouterLink>
-          <!-- <a href="#">Brand</a> -->
-          <RouterLink to="/product">{{ $t('nav.product') }}</RouterLink>
-        </div>
+        <div style="display: flex;align-items: center;">
+          <div class="footer-menu">
+            <RouterLink to="/sustainability">{{ $t('nav.sustainability') }}</RouterLink>
+            <!-- <a href="#">Brand</a> -->
+            <RouterLink to="/product">{{ $t('nav.product') }}</RouterLink>
+          </div>
 
-        <div class="footer-menu">
-          <RouterLink to="/equipment">{{ $t('nav.equipment') }}</RouterLink>
-          <a href="#" @click.prevent="openContact">{{ $t('nav.contact') }}</a>
+          <div class="footer-menu">
+            <RouterLink to="/equipment">{{ $t('nav.equipment') }}</RouterLink>
+            <a href="#" @click.prevent="openContact">{{ $t('nav.contact') }}</a>
+          </div>
         </div>
 
         <!-- 中间分割线 -->
@@ -65,15 +67,19 @@ const openContact = () => {
 .footer {
   width: 100%;
   background-color: #eae7e2;
-  padding: 40px 100px;
+  padding: 40px 0px 30px 0;
   overflow: hidden;
   color: #6f6a63;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 
   &-icon {
     display: flex;
     align-content: center;
     justify-content: center;
     margin-bottom: 120px;
+    cursor: pointer;
 
     img {
       width: 85px;
@@ -103,6 +109,11 @@ const openContact = () => {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  margin-right: 120px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   a {
     font-weight: 400;
@@ -119,10 +130,9 @@ const openContact = () => {
 
 /* 中间分割线 */
 .footer-divider {
-  width: 1px;
+  width: 1.5px;
   height: 120px;
-  background-color: #8b857e;
-  opacity: 0.6;
+  background-color: #5E4F46;
   margin: 0 80px;
 }
 
@@ -166,21 +176,19 @@ const openContact = () => {
 
   img {
     width: 1006px;
-    height: 240px;
+    // height: 240px;
   }
 }
 
 /* 版权信息 */
 .footer-copyright {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 120px;
+  margin-top: auto;
   text-align: center;
+  font-weight: 400;
   font-size: 12px;
-  color: #a5a19a;
+  color: #C7BDAE;
   z-index: 2;
+  // margin-bottom: 20px;
 }
 
 @media screen and (max-width: 760px) {
@@ -208,7 +216,7 @@ const openContact = () => {
   }
 
   .footer-bg-text img {
-    height: 90px;
+    height: auto;
     width: 100%;
   }
 
@@ -232,7 +240,14 @@ const openContact = () => {
 }
 
 
-@media screen and (min-width: 1280px) and (max-width: 1440px) {
+@media screen and (max-width: 1440px) {
+  .footer-icon {
+    margin-bottom: 20px;
+  }
+}
+
+
+@media screen and (max-height: 700px) {
   .footer {
     padding: 24px;
   }
@@ -242,12 +257,13 @@ const openContact = () => {
   }
 
   .footer-main {
-    // margin-bottom: 30px;
+    margin-bottom: 30px;
     /* Scale width if needed, or keep as is */
   }
 
   .footer-menu {
-    gap: 11px;
+
+    // gap: 11px;
 
     a {
       text-decoration: none;
@@ -259,21 +275,20 @@ const openContact = () => {
     margin: 0 8px;
   }
 
-  .qrcode-box {
-    width: 48px;
-    height: 48px;
-  }
+  // .qrcode-box {
+  //   width: 48px;
+  //   height: 48px;
+  // }
 
   .footer-bg-text {
     img {
-      width: 35%;
+      width: 45%;
       height: auto;
     }
   }
 
   .footer-copyright {
-    margin-top: 72px;
-    bottom: 20px;
+    margin-bottom: 0;
   }
 }
 </style>

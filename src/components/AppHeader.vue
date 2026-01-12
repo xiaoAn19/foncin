@@ -292,6 +292,7 @@ const toggleContact = () => {
   margin: 0;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   img {
     height: 40px;
