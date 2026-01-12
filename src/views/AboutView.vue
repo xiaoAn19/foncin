@@ -275,7 +275,7 @@ const scrollToContent = () => {
   max-width: 1080px;
   margin: 0 auto 220px;
   display: flex;
-  align-items: flex-start;
+  // align-items: flex-start;
   gap: 120px;
 
   &.reverse {
@@ -302,7 +302,7 @@ const scrollToContent = () => {
 /* 文案区域 */
 .story-content {
   flex: 1;
-  padding-top: 40px;
+  padding-top: 100px;
 }
 
 .line {

@@ -81,7 +81,7 @@ body,
 
   .app-main {
     box-shadow: unset;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
 
   /* Toggle footers on mobile - handled by JS now
@@ -99,7 +99,7 @@ body,
   /* display: block; - handled by v-if */
   position: fixed;
   bottom: 0;
-  height: calc(100dvh - 100px);
+  height: calc(100vh - 100px);
   z-index: 0;
   width: 100%;
   /* Ensure width is set */
