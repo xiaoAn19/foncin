@@ -506,6 +506,7 @@ $text-sub: #777;
     flex-direction: column-reverse !important;
     gap: 40px;
     padding: 0 24px;
+    margin: 0 auto 120px;
   }
 
   .image {
@@ -516,6 +517,7 @@ $text-sub: #777;
   .intro-block,
   .center-block {
     padding: 0 24px;
+    margin: 0 auto 120px;
   }
 
   .diagram-placeholder {

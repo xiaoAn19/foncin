@@ -357,7 +357,7 @@ const contentSection = ref<HTMLElement | null>(null)
   .story-item {
     flex-direction: column !important;
     gap: 40px;
-    margin: 0 auto 300px;
+    margin: 0 auto 120px;
   }
 
   .story-image {
@@ -367,6 +367,8 @@ const contentSection = ref<HTMLElement | null>(null)
     .img-placeholder {
       overflow: hidden;
       aspect-ratio: unset;
+      width: unset;
+      height: unset;
     }
   }
 

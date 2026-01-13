@@ -412,7 +412,7 @@ $text-sub: #777;
     flex-direction: column !important;
     gap: 40px;
     padding: 0 24px;
-    margin: 0 auto 300px;
+    margin: 0 auto 120px;
   }
 
   .image {
