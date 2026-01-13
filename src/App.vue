@@ -47,7 +47,6 @@ body,
 .app-layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .app-main {
@@ -82,6 +81,8 @@ body,
   .app-main {
     box-shadow: unset;
     margin-bottom: 60px;
+    box-sizing: border-box;
+    padding-top: 60px;
   }
 
   /* Toggle footers on mobile - handled by JS now
@@ -99,9 +100,10 @@ body,
   /* display: block; - handled by v-if */
   position: fixed;
   bottom: 0;
-  height: calc(100vh - 100px);
+  height: 100vh;
   z-index: 0;
   width: 100%;
+  padding-top: 140px !important;
   /* Ensure width is set */
 }
 

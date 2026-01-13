@@ -31,9 +31,6 @@ const openContact = () => {
 
 const contentSection = ref<HTMLElement | null>(null)
 
-const scrollToContent = () => {
-  contentSection.value?.scrollIntoView({ behavior: 'smooth' })
-}
 </script>
 
 <template>
@@ -127,7 +124,6 @@ const scrollToContent = () => {
 /* Layout Containers */
 .home-container {
   width: 100%;
-  min-height: 100vh;
   background-color: #f5f5f0;
   color: #4a4a4a;
 

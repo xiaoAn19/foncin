@@ -67,7 +67,7 @@ const openContact = () => {
 .footer {
   width: 100%;
   background-color: #eae7e2;
-  padding: 40px 0px 30px 0;
+  padding: 0px 0px 30px 0;
   overflow: hidden;
   color: #6f6a63;
   display: flex;

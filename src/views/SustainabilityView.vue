@@ -28,9 +28,6 @@ const toggleSound = () => {
 
 const contentSection = ref<HTMLElement | null>(null)
 
-const scrollToContent = () => {
-  contentSection.value?.scrollIntoView({ behavior: 'smooth' })
-}
 </script>
 
 <template>
@@ -157,7 +154,7 @@ const scrollToContent = () => {
       <!-- 5. Growing Together -->
       <div class="content-block">
         <div class="image">
-          <div class="img-placeholder"><img src="@/assets/sub4.webp" alt=""></div>
+          <div class="img-placeholder"><img class="growing" src="@/assets/sub4.webp" alt=""></div>
         </div>
         <div class="text">
           <h3>{{ $t('sustain.growth.title') }}</h3>
@@ -340,6 +337,11 @@ $text-sub: #777;
   justify-content: center;
   letter-spacing: 2px;
   font-size: 13px;
+
+  .growing {
+    width: 500px;
+    height: 376px;
+  }
 }
 
 /* 1. 顶部 */
@@ -366,7 +368,12 @@ $text-sub: #777;
 
   .diagram-placeholder {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    // aspect-ratio: 1 / 1;
+
+    img {
+      width: 632px;
+      height: 681px;
+    }
   }
 }
 
@@ -513,7 +520,7 @@ $text-sub: #777;
 
   .diagram-placeholder {
     img {
-      width: 100%;
+      width: 100% !important;
       height: auto !important;
       object-fit: contain;
     }
@@ -521,7 +528,7 @@ $text-sub: #777;
 
   .img-placeholder {
     img {
-      width: 100%;
+      width: 100% !important;
       height: auto !important;
       object-fit: contain;
     }

@@ -106,7 +106,7 @@ const toggleContact = () => {
           <span class="menu-text">{{ $t('nav.menu') }}</span>
         </div>
         <div class="header-center">
-          <h1 class="brand-logo" @click="goHome"><img src="@/assets/logo.png" alt="Logo"></h1>
+          <h1 class="brand-logo" @click="goHome"><img src="@/assets/logo1.png" alt="Logo"></h1>
         </div>
         <div class="header-right">
           <div @click.stop="toggleContact" class="contact-btn" ref="contactBtnRef">
@@ -151,7 +151,7 @@ const toggleContact = () => {
   align-items: center;
 
   &-container {
-    position: sticky;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 100px;

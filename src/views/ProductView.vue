@@ -250,6 +250,16 @@ $text-sub: #777;
   margin: 0 auto;
 }
 
+.product-image {
+  width: 100%;
+  height: 428px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .img-placeholder {
   width: 100%;
   aspect-ratio: 16 / 7;

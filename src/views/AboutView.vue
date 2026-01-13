@@ -2,16 +2,16 @@
 import homeBanner from '@/assets/story.mp4'
 import Rellax from 'rellax'
 import { onMounted, onUnmounted, ref } from 'vue'
-import about1 from '@/assets/about1.png'
-import about2 from '@/assets/about2.png'
-import about3 from '@/assets/about3.png'
-import about4 from '@/assets/about4.png'
-import about5 from '@/assets/about5.png'
-import about6 from '@/assets/about6.png'
-import about7 from '@/assets/about7.png'
-import about8 from '@/assets/about8.png'
-import about9 from '@/assets/about9.png'
-import about10 from '@/assets/about10.png'
+import about1 from '@/assets/about1.webp'
+import about2 from '@/assets/about2.webp'
+import about3 from '@/assets/about3.webp'
+import about4 from '@/assets/about4.webp'
+import about5 from '@/assets/about5.webp'
+import about6 from '@/assets/about6.webp'
+import about7 from '@/assets/about7.webp'
+import about8 from '@/assets/about8.webp'
+import about9 from '@/assets/about9.webp'
+import about10 from '@/assets/about10.webp'
 
 const rellaxInstance = ref<Rellax.RellaxInstance | null>(null)
 const videoRef = ref<HTMLVideoElement | null>(null)
@@ -73,9 +73,6 @@ const stories = computed(() => {
 
 const contentSection = ref<HTMLElement | null>(null)
 
-const scrollToContent = () => {
-  contentSection.value?.scrollIntoView({ behavior: 'smooth' })
-}
 </script>
 
 <template>
@@ -289,13 +286,19 @@ const scrollToContent = () => {
 
   .img-placeholder {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    width: 424px;
+    height: 281px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #999;
     font-size: 14px;
     letter-spacing: 2px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
