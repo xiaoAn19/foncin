@@ -140,6 +140,7 @@ const openContact = () => {
 .footer-qrcode {
   display: flex;
   gap: 40px;
+  width: 218px;
 }
 
 .qrcode-item {
@@ -207,6 +208,7 @@ const openContact = () => {
 
 
   .footer-qrcode {
+    width: unset;
     gap: 15px;
   }
 
