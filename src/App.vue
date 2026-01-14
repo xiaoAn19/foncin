@@ -61,6 +61,8 @@ body,
   /* margin-bottom removed for static footer */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   /* Optional shadow for depth */
+  box-sizing: border-box;
+  padding-top: 100px;
 }
 
 @media screen and (max-height: 980px) {
@@ -81,7 +83,6 @@ body,
   .app-main {
     box-shadow: unset;
     margin-bottom: 60px;
-    box-sizing: border-box;
     padding-top: 60px;
   }
 
