@@ -7,6 +7,7 @@ export default {
     sustainability: '可持续',
     about: '品牌',
     contact: '联系我们',
+    lang: '语言',
   },
   homePage: {
     bannerTitle: '致力成为',

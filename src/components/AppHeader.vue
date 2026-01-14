@@ -114,7 +114,7 @@ const toggleContact = () => {
             <span class="contact-text">{{ $t('nav.contact') }}</span>
           </div>
           <div class="lang-switch" @click.stop="toggleLang">
-            <span class="current-lang">{{ locale === 'zh' ? '中文' : 'English' }}</span>
+            <span class="current-lang">{{ $t('nav.lang') }}</span>
             <Transition name="fade">
               <ul v-if="isLangOpen" class="lang-dropdown">
                 <li :class="{ active: locale === 'zh' }" @click.stop="setLocale('zh')">中文</li>

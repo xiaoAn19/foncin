@@ -7,6 +7,7 @@ export default {
     sustainability: 'Sustainability',
     about: 'Brand',
     contact: 'Contact Us',
+    lang: 'Language',
   },
   homePage: {
     bannerTitle: 'Dedicated to becoming',
