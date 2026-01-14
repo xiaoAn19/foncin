@@ -373,6 +373,7 @@ $text-sub: #777;
     img {
       width: 632px;
       height: 681px;
+      max-width: unset;
     }
   }
 }
@@ -382,7 +383,11 @@ $text-sub: #777;
     max-width: 1080px;
     display: flex;
     align-items: flex-start;
-    gap: 80px;
+
+    /* gap: 80px; */
+    .intro-text {
+      margin-right: 80px;
+    }
 
     .intro-text {
       flex: 1;
@@ -402,7 +407,8 @@ $text-sub: #777;
   max-width: 1080px;
   margin: 0 auto 300px;
   display: flex;
-  gap: 120px;
+  /* gap: 120px; */
+  /* margin handled in children */
   align-items: flex-start;
 
   &.reverse {
@@ -424,12 +430,20 @@ $text-sub: #777;
   flex: 0 0 420px;
 
   .img-placeholder {
-    width: 100%;
-    // aspect-ratio: 4 / 5;
-
     @media screen and (max-width: 768px) {
-      aspect-ratio: unset;
+      /* aspect-ratio: unset; */
+      height: auto;
+      padding-bottom: 0;
     }
+  }
+
+  /* Gap replacement */
+  .content-block:not(.reverse) & {
+    margin-right: 120px;
+  }
+
+  .content-block.reverse & {
+    margin-left: 120px;
   }
 }
 
@@ -504,7 +518,14 @@ $text-sub: #777;
 @media (max-width: 768px) {
   .content-block {
     flex-direction: column-reverse !important;
-    gap: 40px;
+
+    /* gap: 40px; */
+    .image {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      margin-top: 40px;
+    }
+
     padding: 0 24px;
     margin: 0 auto 120px;
   }
@@ -540,14 +561,27 @@ $text-sub: #777;
 .footer-indicator {
   cursor: pointer;
   text-align: center;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 150px;
   background-color: #f2f0eb;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-indicator {
+    padding-bottom: 50px;
+  }
 }
 
 @media (max-width: 768px) {
   .story-item {
     flex-direction: column !important;
-    gap: 40px;
+
+    /* gap: 40px; */
+    >*:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
     padding: 0 24px;
   }
 

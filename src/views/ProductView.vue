@@ -262,7 +262,20 @@ $text-sub: #777;
 
 .img-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 7;
+  /* aspect-ratio: 16 / 7; compatibility fix: */
+  height: 0;
+  padding-bottom: 43.75%;
+  /* 7/16 = 43.75% */
+  position: relative;
+
+  /* Ensure children (if any) are positioned correctly if this was a flex container */
+  &>* {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   background: #ddd;
   display: flex;
   align-items: center;
@@ -332,14 +345,28 @@ $text-sub: #777;
 .footer-indicator {
   cursor: pointer;
   text-align: center;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 150px;
   background-color: #f2f0eb;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-indicator {
+    padding-bottom: 50px;
+  }
 }
 
 @media (max-width: 768px) {
   .product-item {
     flex-direction: column !important;
-    gap: 40px;
+
+    /* gap: 40px; */
+    // Ensure Caption has margin since gap is removed
+    .caption {
+      margin-top: 40px;
+    }
+
     padding: 0 24px;
   }
 

@@ -98,7 +98,16 @@ const scrollToTop = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 36px;
+
+  /* gap: 36px; */
+  .contact-item {
+    margin-bottom: 36px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   margin-bottom: 50px;
 }
 

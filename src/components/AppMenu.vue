@@ -41,17 +41,37 @@ const emit = defineEmits(['close']);
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
-  gap: 8rem;
+
+  /* gap: 8rem; */
+  .menu-column {
+    margin-right: 8rem;
+  }
 }
 
 .menu-column {
   display: flex;
-  gap: 55px;
+
+  /* gap: 55px; */
+  nav {
+    margin-right: 55px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 
   nav {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+
+    /* gap: 1.5rem; */
+    a {
+      margin-bottom: 1.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   a {
@@ -83,7 +103,12 @@ const emit = defineEmits(['close']);
 
   .menu-container {
     padding: 0 1rem;
-    gap: 0;
+
+    /* gap: 0; */
+    .menu-column {
+      margin-right: 0;
+    }
+
     /* Remove huge gap since right side is gone */
     justify-content: center;
     /* Center the menu items */
@@ -92,7 +117,12 @@ const emit = defineEmits(['close']);
   .menu-column {
     width: 100%;
     justify-content: center;
-    gap: 2rem;
+
+    /* gap: 2rem; */
+    nav {
+      margin-right: 2rem;
+    }
+
     /* Adjust gap between nav columns if needed */
   }
 }

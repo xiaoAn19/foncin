@@ -179,9 +179,10 @@ const toggleContact = () => {
   }
 
   &-left {
-    gap: 8px;
 
+    /* gap: 8px; */
     .menu-icon-symbol {
+      margin-right: 8px;
       font-size: 20px;
     }
   }
@@ -190,18 +191,31 @@ const toggleContact = () => {
     text-align: right;
     display: flex;
     align-items: center;
-    gap: 20px;
+
+    /* gap: 20px; */
+    .contact-btn {
+      margin-right: 20px;
+    }
+
     justify-content: flex-end;
 
     @media (max-width: 768px) {
-      gap: 15px;
+
+      /* gap: 15px; */
+      .contact-btn {
+        margin-right: 15px;
+      }
     }
 
     .contact-btn {
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 5px;
+
+      /* gap: 5px; */
+      .contact-icon-symbol {
+        margin-right: 5px;
+      }
 
       .contact-icon-symbol {
         font-size: 20px;

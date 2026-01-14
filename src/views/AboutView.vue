@@ -280,7 +280,8 @@ const contentSection = ref<HTMLElement | null>(null)
   margin: 0 auto 220px;
   display: flex;
   // align-items: flex-start;
-  gap: 120px;
+  /* gap: 120px; */
+  /* margin handled in children */
 
   &.reverse {
     flex-direction: row-reverse;
@@ -306,6 +307,15 @@ const contentSection = ref<HTMLElement | null>(null)
       width: 100%;
       height: 100%;
     }
+  }
+
+  /* Gap replacement */
+  .story-item:not(.reverse) & {
+    margin-right: 120px;
+  }
+
+  .story-item.reverse & {
+    margin-left: 120px;
   }
 }
 
@@ -355,7 +365,18 @@ const contentSection = ref<HTMLElement | null>(null)
 /* 响应式 */
 @media (max-width: 1024px) {
   .story-item {
-    gap: 60px;
+
+    /* gap: 60px; */
+    // padding: 0 24px;
+    // Replace gap with smaller margins for tablet
+    &:not(.reverse) .story-image {
+      margin-right: 60px;
+    }
+
+    &.reverse .story-image {
+      margin-left: 60px;
+    }
+
     padding: 0 24px;
   }
 }
@@ -363,7 +384,14 @@ const contentSection = ref<HTMLElement | null>(null)
 @media (max-width: 768px) {
   .story-item {
     flex-direction: column !important;
-    gap: 40px;
+
+    /* gap: 40px; */
+    .story-image {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+      margin-bottom: 40px;
+    }
+
     margin: 0 auto 120px;
   }
 
@@ -373,7 +401,9 @@ const contentSection = ref<HTMLElement | null>(null)
 
     .img-placeholder {
       overflow: hidden;
-      aspect-ratio: unset;
+      /* aspect-ratio: unset; */
+      height: auto;
+      padding-bottom: 0;
       width: unset;
       height: unset;
     }
@@ -412,7 +442,15 @@ const contentSection = ref<HTMLElement | null>(null)
 .footer-indicator {
   cursor: pointer;
   text-align: center;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 150px;
   background-color: #f2f0eb;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-indicator {
+    padding-bottom: 50px;
+  }
 }
 </style>

@@ -108,7 +108,7 @@ const openContact = () => {
 .footer-menu {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  /* gap: 18px; replaced by margin on children */
   margin-right: 120px;
 
   &:last-child {
@@ -125,6 +125,12 @@ const openContact = () => {
     &:hover {
       opacity: 0.6;
     }
+
+    margin-bottom: 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -139,19 +145,31 @@ const openContact = () => {
 /* 二维码区域 */
 .footer-qrcode {
   display: flex;
-  gap: 40px;
-  width: 218px;
+  /* gap: 40px; replaced by margin on children */
+  width: 284px;
+
+  .qrcode-item {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .qrcode-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; replaced by margin on children */
 
   span {
     font-size: 12px;
     color: #6f6a63;
+  }
+
+  .qrcode-box {
+    margin-bottom: 10px;
   }
 }
 
@@ -199,7 +217,7 @@ const openContact = () => {
   }
 
   .footer-icon {
-    margin-bottom: 60px;
+    margin-bottom: 60px !important;
   }
 
   .footer-main {
@@ -209,7 +227,11 @@ const openContact = () => {
 
   .footer-qrcode {
     width: unset;
-    gap: 15px;
+
+    /* gap: 15px; */
+    .qrcode-item {
+      margin-right: 15px;
+    }
   }
 
   .qrcode-box {
@@ -227,7 +249,12 @@ const openContact = () => {
   }
 
   .footer-menu {
-    gap: 11px;
+
+    /* gap: 11px; */
+    a {
+      margin-bottom: 11px;
+    }
+
     margin-right: 10px;
 
     a {

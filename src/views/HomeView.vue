@@ -337,7 +337,15 @@ const contentSection = ref<HTMLElement | null>(null)
   left: 324px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+
+  /* gap: 30px; */
+  .nav-btn {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 
 .nav-btn {
@@ -490,8 +498,16 @@ const contentSection = ref<HTMLElement | null>(null)
 .footer-indicator {
   cursor: pointer;
   text-align: center;
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 150px;
   background-color: #f2f0eb;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-indicator {
+    padding-bottom: 50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -500,7 +516,15 @@ const contentSection = ref<HTMLElement | null>(null)
     height: auto;
     width: 100%;
     padding: 0 20px 60px;
-    gap: 60px;
+
+    /* gap: 60px; */
+    >* {
+      margin-bottom: 60px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .story-intro {
@@ -508,7 +532,12 @@ const contentSection = ref<HTMLElement | null>(null)
     top: auto;
     left: auto;
     flex-direction: column;
-    gap: 40px;
+
+    /* gap: 40px; */
+    .intro-left {
+      margin-bottom: 40px;
+    }
+
     margin-bottom: 20px;
   }
 
@@ -540,7 +569,14 @@ const contentSection = ref<HTMLElement | null>(null)
 
   .story-nav {
     flex-wrap: wrap;
-    gap: 15px;
+
+    /* gap: 15px; */
+    .nav-btn {
+      margin: 7.5px;
+    }
+
+    width: calc(100% + 15px);
+    margin-left: -7.5px;
   }
 
   .sustainability-footer {
