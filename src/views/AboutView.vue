@@ -38,6 +38,13 @@ onMounted(() => {
     setTimeout(() => {
       rellaxInstance.value?.refresh()
     }, 500)
+
+    // 等视频加载完成之后再刷新一次，确保布局
+    if (videoRef.value) {
+      videoRef.value.addEventListener('loadeddata', () => {
+        rellaxInstance.value?.refresh()
+      })
+    }
   }
 })
 
